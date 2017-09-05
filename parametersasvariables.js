@@ -56,3 +56,16 @@ console.log(bar());
 // Output:
 "outer"
 undefined
+//Babel - ES5:
+'use strict';
+
+var foo = 'outer';
+function bar() {
+  var func = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function (x) {
+    return foo;
+  };
+
+  var foo = 'inner';
+  console.log(func());
+}
+console.log(bar());
